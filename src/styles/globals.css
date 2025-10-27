@@ -2,6 +2,7 @@
 
 :root {
   --font-size: 16px;
+  --header-height: 5rem; /* 80px - matches h-20 in Header component */
   
   /* Hypnotherapy Brand Colors */
   --color-trust: #0D5C85;

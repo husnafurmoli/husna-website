@@ -53,24 +53,26 @@ export function Specialties() {
   const { navigate } = useRoute();
 
   return (
-    <section className="relative py-20 overflow-hidden">
-      <img
-        src={mindfulBloom}
-        alt="Soft pastel bloom"
-        className="pointer-events-none absolute -top-48 left-[-18%] w-[55rem] max-w-none opacity-45"
-      />
-      <img
-        src={mindfulBloom}
-        alt="Soft pastel bloom"
-        className="pointer-events-none absolute -bottom-56 right-[-22%] w-[60rem] max-w-none opacity-35 rotate-180"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/92 via-[var(--color-calm)]/70 to-white/92" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-20">
+      <div className="pointer-events-none absolute inset-0">
+        <img
+          src={mindfulBloom}
+          alt="Soft pastel bloom"
+          className="absolute top-24 left-[-12%] w-[50rem] max-w-none opacity-35"
+        />
+        <img
+          src={mindfulBloom}
+          alt="Soft pastel bloom"
+          className="absolute bottom-[-20%] right-[-20%] w-[56rem] max-w-none opacity-30 rotate-180"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/92 via-[var(--color-calm)]/65 to-white/92" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-12 mt-12s"
         >
           <h2 className="text-4xl sm:text-5xl text-[var(--color-text-dark)] mb-4">
             Gentle <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-trust)] via-[var(--color-blush)] to-[var(--color-growth)]">Areas of Care</span>
@@ -80,7 +82,7 @@ export function Specialties() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {specialties.map((specialty, index) => {
             const Icon = specialty.icon;
             return (

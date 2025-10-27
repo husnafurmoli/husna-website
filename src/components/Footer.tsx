@@ -8,7 +8,7 @@ export function Footer() {
   const { navigate } = useRoute();
 
   return (
-    <footer className="relative overflow-hidden py-16 text-[var(--color-text-dark)]">
+    <footer className="relative overflow-hidden py-20 mt-16 text-[var(--color-text-dark)]">
       <img
         src={mindfulBloom}
         alt="Soft watercolor bloom"
@@ -21,7 +21,7 @@ export function Footer() {
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/95 via-[var(--color-calm)]/65 to-white/95" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
           {/* Brand Column */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
@@ -33,10 +33,10 @@ export function Footer() {
                 <p className="text-xs text-[var(--color-text-dark)]/60">Certified Clinical Hypnotherapist</p>
               </div>
             </div>
-            <p className="text-[var(--color-text-dark)]/70 text-sm mb-4 leading-relaxed">
+            <p className="text-[var(--color-text-dark)]/70 text-sm mb-6 leading-relaxed">
               Helping you rewrite your story one thought at a time. Transform your mind, transform your life.
             </p>
-            <div className="flex space-x-3">
+            <div className="flex space-x-4">
               <a
                 href="#"
                 className="w-10 h-10 bg-[var(--color-trust)]/10 hover:bg-[var(--color-trust)]/20 text-[var(--color-trust)] rounded-lg flex items-center justify-center transition-colors"
@@ -70,8 +70,8 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[var(--color-text-dark)] mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-[var(--color-text-dark)] mb-6">Quick Links</h4>
+            <ul className="space-y-3 text-sm">
               <li>
                 <button
                   onClick={() => navigate('/')}
@@ -125,8 +125,8 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-[var(--color-text-dark)] mb-4">Our Services</h4>
-            <ul className="space-y-2 text-sm text-[var(--color-text-dark)]/70">
+            <h4 className="text-[var(--color-text-dark)] mb-6">Our Services</h4>
+            <ul className="space-y-3 text-sm text-[var(--color-text-dark)]/70">
               <li>Anxiety & Stress Relief</li>
               <li>Confidence Building</li>
               <li>Sleep Improvement</li>
@@ -140,8 +140,8 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-[var(--color-text-dark)] mb-4">Contact Info</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="text-[var(--color-text-dark)] mb-6">Contact Info</h4>
+            <ul className="space-y-4 text-sm">
               <li>
                 <a href="tel:+19165550123" className="flex items-start space-x-3 text-[var(--color-text-dark)]/65 hover:text-[var(--color-trust)] transition-colors">
                   <Phone size={18} className="flex-shrink-0 mt-0.5" />
@@ -166,8 +166,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[var(--border)]">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="pt-12 border-t border-[var(--border)]">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
             <p className="text-sm text-[var(--color-text-dark)]/60 text-center md:text-left">
               © {currentYear} Husna Shams Hypnotherapy. All rights reserved.
             </p>
@@ -188,7 +188,7 @@ export function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className="mt-16 text-center"
         >
           <p className="text-[var(--color-text-dark)]/55 italic text-sm">
             "Every challenge we face comes with a silver lining."

@@ -52,7 +52,7 @@ export function Benefits() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/92 via-[var(--color-calm)]/70 to-white/92" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

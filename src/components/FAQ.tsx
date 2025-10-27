@@ -62,7 +62,7 @@ export function FAQ() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-12 mt-12"
         >
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[var(--color-trust)] via-[var(--color-blush)] to-[var(--color-growth)] rounded-2xl mb-6 shadow-lg shadow-[var(--color-trust)]/15">
             <HelpCircle className="text-white" size={32} />
@@ -81,7 +81,7 @@ export function FAQ() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-4 mt-12">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}

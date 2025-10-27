@@ -59,7 +59,7 @@ export default function App() {
     <RouteProvider value={routeValue}>
       <div className="min-h-screen">
         <Header />
-        <main className="pt-24">
+        <main>
           {currentPage}
         </main>
         <Footer />

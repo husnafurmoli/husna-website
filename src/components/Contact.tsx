@@ -59,7 +59,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-12 mt-12"
         >
           <h2 className="text-4xl sm:text-5xl text-[var(--color-text-dark)] mb-4">
             Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-trust)] via-[var(--color-blush)] to-[var(--color-growth)]">Connect</span>
@@ -70,7 +70,7 @@ export function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-10 mt-12">
           {/* Left: Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
