@@ -20,7 +20,7 @@ export function Footer() {
         className="pointer-events-none absolute -bottom-52 right-[-18%] w-[58rem] max-w-none opacity-30 rotate-180"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/95 via-[var(--color-calm)]/65 to-white/95" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
           {/* Brand Column */}
           <div>
