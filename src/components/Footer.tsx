@@ -1,16 +1,11 @@
 import { motion } from 'motion/react';
 import { Heart, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import mindfulBloom from '../assets/mindful-bloom.svg';
+import { useRoute } from '../lib/route-context';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const { navigate } = useRoute();
 
   return (
     <footer className="relative overflow-hidden py-16 text-[var(--color-text-dark)]">
@@ -79,7 +74,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <button
-                  onClick={() => scrollToSection('#home')}
+                  onClick={() => navigate('/')}
                   className="text-[var(--color-text-dark)]/60 hover:text-[var(--color-trust)] transition-colors"
                 >
                   Home
@@ -87,7 +82,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('#specialties')}
+                  onClick={() => navigate('/specialties')}
                   className="text-[var(--color-text-dark)]/60 hover:text-[var(--color-trust)] transition-colors"
                 >
                   Specialties
@@ -95,7 +90,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('#benefits')}
+                  onClick={() => navigate('/benefits')}
                   className="text-[var(--color-text-dark)]/60 hover:text-[var(--color-trust)] transition-colors"
                 >
                   Benefits
@@ -103,7 +98,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('#about')}
+                  onClick={() => navigate('/about')}
                   className="text-[var(--color-text-dark)]/60 hover:text-[var(--color-trust)] transition-colors"
                 >
                   About
@@ -111,7 +106,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('#faqs')}
+                  onClick={() => navigate('/faqs')}
                   className="text-[var(--color-text-dark)]/60 hover:text-[var(--color-trust)] transition-colors"
                 >
                   FAQs
@@ -119,7 +114,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('#contact')}
+                  onClick={() => navigate('/contact')}
                   className="text-[var(--color-text-dark)]/60 hover:text-[var(--color-trust)] transition-colors"
                 >
                   Contact

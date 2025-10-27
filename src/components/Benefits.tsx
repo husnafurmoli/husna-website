@@ -37,7 +37,7 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section id="benefits" className="relative py-20 overflow-hidden scroll-mt-28">
+    <section className="relative py-20 overflow-hidden">
       {/* Background Texture */}
       <img
         src={mindfulBloom}
@@ -63,10 +63,10 @@ export function Benefits() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-md px-5 py-2 rounded-full mb-6 shadow-sm"
+              className="inline-flex items-center bg-white/80 backdrop-blur-md px-5 py-2 rounded-full mb-6 shadow-sm"
             >
-              <Sparkles className="text-[var(--color-trust)]" size={20} />
-              <span className="text-sm text-[var(--color-text-dark)]">What shifts when we slow down</span>
+              <Sparkles className="text-[var(--color-trust)] mr-2" size={20} />
+              <span className="text-sm text-[var(--color-text-dark)] px-3 py-1 rounded-full">What shifts when we slow down</span>
             </motion.div>
 
             <h2 className="text-4xl sm:text-5xl text-[var(--color-text-dark)] mb-6 leading-tight">

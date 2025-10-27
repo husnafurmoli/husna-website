@@ -2,23 +2,18 @@ import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 import mindfulBloom from '../assets/mindful-bloom.svg';
+import { useRoute } from '../lib/route-context';
 
 export function Hero() {
+  const { navigate } = useRoute();
   const highlights = [
     'Personalized hypnotherapy tailored to your story',
     'Gentle techniques that honor mind and body',
     'A safe space to rest, reset, and rediscover joy'
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-28">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Mindful Background */}
       <div className="absolute inset-0 overflow-hidden">
         <img
@@ -48,10 +43,12 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-md px-5 py-2 rounded-full mb-6 shadow-sm"
+              className="inline-flex items-center bg-white/80 backdrop-blur-md px-5 py-2 rounded-full mb-6 shadow-sm"
             >
-              <Sparkles className="text-[var(--color-trust)]" size={20} />
-              <span className="text-sm text-[var(--color-text-dark)]">Where calm minds begin again</span>
+              <Sparkles className="text-[var(--color-trust)] mr-2" size={20} />
+              <span className="text-sm text-[var(--color-text-dark)] px-3 py-1 rounded-full">
+                Where calm minds begin again
+              </span>
             </motion.div>
 
             <motion.h1
@@ -93,38 +90,16 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex justify-center lg:justify-start"
             >
               <Button
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => navigate('/contact')}
                 size="lg"
                 className="bg-[var(--color-trust)] hover:bg-[var(--color-deep-blue)] text-white group shadow-lg shadow-[var(--color-trust)]/25"
               >
                 Book Your Session
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Button>
-              <Button
-                onClick={() => scrollToSection('#about')}
-                size="lg"
-                variant="outline"
-                className="border-[var(--color-trust)] text-[var(--color-trust)] hover:bg-[var(--color-trust)] hover:text-white"
-              >
-                Learn More
-              </Button>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="mt-8 inline-flex items-start space-x-3 bg-white/80 backdrop-blur-md rounded-2xl px-5 py-4 shadow-md border border-[var(--border)]"
-            >
-              <span className="text-2xl">🪴</span>
-              <div className="text-left">
-                <p className="text-sm font-medium text-[var(--color-text-dark)]">Daily Intention</p>
-                <p className="text-sm text-[var(--color-text-dark)]/70">
-                  "Every breath is a bridge back to yourself."
-                </p>
-              </div>
             </motion.div>
           </motion.div>
 
@@ -150,16 +125,6 @@ export function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-trust)]/15 via-transparent to-white/10" />
               </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -bottom-6 -left-8 bg-white/90 backdrop-blur-md px-6 py-5 rounded-2xl shadow-xl border border-[var(--border)]"
-              >
-
-              </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

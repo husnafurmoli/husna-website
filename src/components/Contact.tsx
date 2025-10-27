@@ -40,7 +40,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-20 overflow-hidden scroll-mt-28">
+    <section className="relative py-20 overflow-hidden">
       {/* Background Elements */}
       <img
         src={mindfulBloom}

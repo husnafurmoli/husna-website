@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Award, BookOpen, Heart, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import mindfulBloom from '../assets/mindful-bloom.svg';
+import { useRoute } from '../lib/route-context';
 
 const credentials = [
   {
@@ -27,15 +28,10 @@ const credentials = [
 ];
 
 export function About() {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const { navigate } = useRoute();
 
   return (
-    <section id="about" className="relative py-20 overflow-hidden scroll-mt-28">
+    <section className="relative py-20 overflow-hidden">
       {/* Decorative Elements */}
       <img
         src={mindfulBloom}
@@ -95,10 +91,10 @@ export function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 bg-white/85 backdrop-blur-md px-5 py-2 rounded-full mb-5 shadow-sm"
+              className="inline-flex items-center bg-white/85 backdrop-blur-md px-5 py-2 rounded-full mb-5 shadow-sm"
             >
-              <Heart className="text-[var(--color-trust)]" size={20} />
-              <span className="text-sm text-[var(--color-text-dark)]">Meet Your Guide</span>
+              <Heart className="text-[var(--color-trust)] mr-2" size={20} />
+              <span className="text-sm text-[var(--color-text-dark)] px-3 py-1 rounded-full">Meet Your Guide</span>
             </motion.div>
 
             <h2 className="text-4xl sm:text-5xl text-[var(--color-text-dark)] mb-5 leading-tight">
@@ -158,7 +154,7 @@ export function About() {
             </div>
 
             <Button
-              onClick={scrollToContact}
+              onClick={() => navigate('/contact')}
               size="lg"
               className="bg-[var(--color-growth)] hover:bg-[var(--color-trust)] text-[var(--color-deep-blue)] shadow-lg shadow-[var(--color-growth)]/30"
             >

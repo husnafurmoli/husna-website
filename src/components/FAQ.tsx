@@ -45,7 +45,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faqs" className="relative py-20 overflow-hidden scroll-mt-28">
+    <section className="relative py-20 overflow-hidden">
       <img
         src={mindfulBloom}
         alt="Relaxed watercolor background"

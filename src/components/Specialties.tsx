@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Brain, Heart, Moon, Shield, Sparkles, Target } from 'lucide-react';
 import { Button } from './ui/button';
 import mindfulBloom from '../assets/mindful-bloom.svg';
+import { useRoute } from '../lib/route-context';
 
 const specialties = [
   {
@@ -49,15 +50,10 @@ const specialties = [
 ];
 
 export function Specialties() {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const { navigate } = useRoute();
 
   return (
-    <section id="specialties" className="relative py-20 overflow-hidden scroll-mt-28">
+    <section className="relative py-20 overflow-hidden">
       <img
         src={mindfulBloom}
         alt="Soft pastel bloom"
@@ -119,7 +115,7 @@ export function Specialties() {
 
                 {/* CTA */}
                 <Button
-                  onClick={scrollToContact}
+                  onClick={() => navigate('/contact')}
                   variant="ghost"
                   className="text-[var(--color-deep-blue)] hover:text-[var(--color-trust)] hover:bg-white/70 p-0 h-auto group/btn"
                 >
@@ -131,24 +127,6 @@ export function Specialties() {
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <p className="text-lg text-[var(--color-text-dark)]/70 mb-6">
-            Ready to begin your transformation journey?
-          </p>
-          <Button
-            onClick={scrollToContact}
-            size="lg"
-            className="bg-[var(--color-growth)] hover:bg-[var(--color-trust)] text-[var(--color-deep-blue)] shadow-md shadow-[var(--color-growth)]/25"
-          >
-            Schedule a Consultation
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

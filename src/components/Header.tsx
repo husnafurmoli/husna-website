@@ -2,19 +2,21 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { motion, AnimatePresence } from 'motion/react';
+import { useRoute } from '../lib/route-context';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'Specialties', href: '#specialties' },
-  { name: 'Benefits', href: '#benefits' },
-  { name: 'About', href: '#about' },
-  { name: 'FAQs', href: '#faqs' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', to: '/' },
+  { name: 'Specialties', to: '/specialties' },
+  { name: 'Benefits', to: '/benefits' },
+  { name: 'About', to: '/about' },
+  { name: 'FAQs', to: '/faqs' },
+  { name: 'Contact', to: '/contact' },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { path, navigate } = useRoute();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,12 +26,9 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
-    }
+  const handleNavigate = (to: string) => {
+    navigate(to);
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -38,8 +37,8 @@ export function Header() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/88 backdrop-blur-xl shadow-lg border-b border-[var(--border)]'
-          : 'bg-transparent'
+          ? 'bg-white/90 backdrop-blur-xl shadow-lg border-b border-[var(--border)]'
+          : 'bg-white/85 backdrop-blur-lg border-b border-[var(--border)]/60'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,15 +67,24 @@ export function Header() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
-                onClick={() => scrollToSection(item.href)}
-                className="text-[var(--color-text-dark)]/80 hover:text-[var(--color-trust)] transition-colors duration-200 relative group"
+                onClick={() => handleNavigate(item.to)}
+                className={`relative group transition-colors duration-200 ${
+                  path === item.to
+                    ? 'text-[var(--color-trust)]'
+                    : 'text-[var(--color-text-dark)]/80 hover:text-[var(--color-trust)]'
+                }`}
+                aria-current={path === item.to ? 'page' : undefined}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-trust)] transition-all duration-200 group-hover:w-full" />
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-[var(--color-trust)] transition-all duration-200 ${
+                    path === item.to ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                />
               </motion.button>
             ))}
             <Button
-              onClick={() => scrollToSection('#contact')}
+              onClick={() => handleNavigate('/contact')}
               className="bg-[var(--color-trust)] hover:bg-[var(--color-deep-blue)] text-white shadow-lg shadow-[var(--color-trust)]/20"
             >
               Book a Session
@@ -106,14 +114,14 @@ export function Header() {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavigate(item.to)}
                   className="block w-full text-left py-2 text-[var(--color-text-dark)]/80 hover:text-[var(--color-trust)] transition-colors"
                 >
                   {item.name}
                 </button>
               ))}
               <Button
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => handleNavigate('/contact')}
                 className="w-full bg-[var(--color-trust)] hover:bg-[var(--color-deep-blue)] text-white shadow-lg shadow-[var(--color-trust)]/20"
               >
                 Book a Session
